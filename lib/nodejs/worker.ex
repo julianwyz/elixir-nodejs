@@ -118,11 +118,7 @@ defmodule NodeJS.Worker do
   defp decode(data) do
     data
     |> to_string()
-    |> Jason.decode!()
-    |> case do
-      [true, success] -> {:ok, success}
-      [false, error] -> {:error, error}
-    end
+    |> Jason.decode()
   end
 
   @doc false
